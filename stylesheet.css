@@ -1294,7 +1294,8 @@ audio {
 #cake_fadein,
 #light_candle,
 #wish_message,
-#story {
+#story,
+#photo_reel {
   display: none;
 }
 
