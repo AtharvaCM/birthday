@@ -1299,6 +1299,21 @@ audio {
   display: none;
 }
 
+.my-carousel {
+  display: none;
+  position: fixed;
+  top: 10%;
+  width: 85%;
+  height: 60%;
+  margin-left: 0;
+  margin-right: 0;
+}
+.my-carousel .slider-image {
+  position: fixed;
+  width: 100%;
+  height: 10%;
+}
+
 .cake-cover {
   margin-top: 50px;
 }

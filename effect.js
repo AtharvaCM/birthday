@@ -3,6 +3,21 @@ $(window).load(function () {
   $(".container").fadeIn("fast");
 });
 $("document").ready(function () {
+  // slick js init
+  $(".my-carousel").slick({
+    // setting- name: setting - value
+    accessibility: false,
+    autoplay: true,
+    autoplaySpeed: 5000,
+    arrows: false,
+    draggable: false,
+    fade: true,
+    speed: 2000,
+    infinite: false,
+    pauseOnHover: false,
+    swipe: false,
+  });
+
   var vw;
   $(window).resize(function () {
     vw = $(window).width() / 2;
@@ -82,7 +97,7 @@ $("document").ready(function () {
     $("body").addClass("peach");
     $(this)
       .fadeOut("slow")
-      .delay(5000)
+      .delay(1000) // 5000
       .promise()
       .done(function () {
         $("#play").fadeIn("slow");
@@ -101,7 +116,7 @@ $("document").ready(function () {
     $("body").addClass("peach-after");
     $(this)
       .fadeOut("slow")
-      .delay(6000)
+      .delay(1000) //6000
       .promise()
       .done(function () {
         $("#bannar_coming").fadeIn("slow");
@@ -112,7 +127,7 @@ $("document").ready(function () {
     $(".bannar").addClass("bannar-come");
     $(this)
       .fadeOut("slow")
-      .delay(6000)
+      .delay(1000) //6000
       .promise()
       .done(function () {
         $("#balloons_flying").fadeIn("slow");
@@ -280,7 +295,7 @@ $("document").ready(function () {
 
     $(this)
       .fadeOut("slow")
-      .delay(5000)
+      .delay(1000) // 5000
       .promise()
       .done(function () {
         $("#cake_fadein").fadeIn("slow");
@@ -291,7 +306,7 @@ $("document").ready(function () {
     $(".cake").fadeIn("slow");
     $(this)
       .fadeOut("slow")
-      .delay(3000)
+      .delay(1000) // 3000
       .promise()
       .done(function () {
         $("#light_candle").fadeIn("slow");
@@ -388,7 +403,7 @@ $("document").ready(function () {
     $(".balloons h2").fadeIn(3000);
     $(this)
       .fadeOut("slow")
-      .delay(3000)
+      .delay(1000) // 3000
       .promise()
       .done(function () {
         $("#story").fadeIn("slow");
@@ -439,7 +454,7 @@ $("document").ready(function () {
     // msgLoop(0);
     $(this)
       .fadeOut("slow")
-      .delay(30000)
+      .delay(1000) // 30000
       .promise()
       .done(function () {
         $("#photo_reel").fadeIn("slow");
@@ -459,6 +474,11 @@ $("document").ready(function () {
       .promise()
       .done(function () {
         console.log("asadad");
+        var audio3 = $(".msg-audio")[0];
+        audio3.pause();
+        var audio4 = $(".reel-audio")[0];
+        audio4.play();
+        $(".my-carousel").fadeIn("slow");
         //build a photo div and reel over it
       });
   });
