@@ -97,7 +97,7 @@ $("document").ready(function () {
     $("body").addClass("peach");
     $(this)
       .fadeOut("slow")
-      .delay(1000) // 5000
+      .delay(5000) // 5000
       .promise()
       .done(function () {
         $("#play").fadeIn("slow");
@@ -116,7 +116,7 @@ $("document").ready(function () {
     $("body").addClass("peach-after");
     $(this)
       .fadeOut("slow")
-      .delay(1000) //6000
+      .delay(6000) //6000
       .promise()
       .done(function () {
         $("#bannar_coming").fadeIn("slow");
@@ -127,7 +127,7 @@ $("document").ready(function () {
     $(".bannar").addClass("bannar-come");
     $(this)
       .fadeOut("slow")
-      .delay(1000) //6000
+      .delay(6000) //6000
       .promise()
       .done(function () {
         $("#balloons_flying").fadeIn("slow");
@@ -265,7 +265,7 @@ $("document").ready(function () {
 
     $(this)
       .fadeOut("slow")
-      .delay(1000) // 5000
+      .delay(5000) // 5000
       .promise()
       .done(function () {
         $("#cake_fadein").fadeIn("slow");
@@ -276,7 +276,7 @@ $("document").ready(function () {
     $(".cake").fadeIn("slow");
     $(this)
       .fadeOut("slow")
-      .delay(1000) // 3000
+      .delay(3000) // 3000
       .promise()
       .done(function () {
         $("#light_candle").fadeIn("slow");
@@ -358,7 +358,7 @@ $("document").ready(function () {
     $(".balloons h2").fadeIn(3000);
     $(this)
       .fadeOut("slow")
-      .delay(1000) // 3000
+      .delay(3000) // 3000
       .promise()
       .done(function () {
         $("#story").fadeIn("slow");
@@ -409,7 +409,7 @@ $("document").ready(function () {
     // msgLoop(0);
     $(this)
       .fadeOut("slow")
-      .delay(1000) // 30000
+      .delay(70000) // 30000
       .promise()
       .done(function () {
         $("#photo_reel").fadeIn("slow");
@@ -428,7 +428,8 @@ $("document").ready(function () {
       .fadeOut("fast")
       .promise()
       .done(function () {
-        console.log("balloons out");
+        turnOffLights();
+        console.log("balloons n lights out");
         var audio3 = $(".msg-audio")[0];
         audio3.pause();
         $(".my-vid")
@@ -440,6 +441,7 @@ $("document").ready(function () {
             console.log(vid1);
             vid1.play();
             vid1.onended = function () {
+              turnOnLights();
               $("#replay_reel").fadeIn("slow");
             };
           });
@@ -448,6 +450,7 @@ $("document").ready(function () {
 
   $("#replay_reel").click(function () {
     $(this).fadeOut("slow");
+    turnOffLights();
     var vid2 = $(".actual-vid")[0];
     // vid2.autoplay = true;
     // vid2.load();
@@ -457,9 +460,30 @@ $("document").ready(function () {
     // $(this).fadeIn("slow");
     // });
     vid2.onended = function () {
-      $(this).fadeIn("slow");
+      turnOnLights();
+      $("#replay_reel").fadeIn("slow");
     };
   });
+
+  function turnOffLights() {
+    $("#bulb_yellow").removeClass("bulb-glow-yellow");
+    $("#bulb_red").removeClass("bulb-glow-red");
+    $("#bulb_blue").removeClass("bulb-glow-blue");
+    $("#bulb_green").removeClass("bulb-glow-green");
+    $("#bulb_pink").removeClass("bulb-glow-pink");
+    $("#bulb_orange").removeClass("bulb-glow-orange");
+    $("body").removeClass("peach");
+  }
+
+  function turnOnLights() {
+    $("#bulb_yellow").addClass("bulb-glow-yellow");
+    $("#bulb_red").addClass("bulb-glow-red");
+    $("#bulb_blue").addClass("bulb-glow-blue");
+    $("#bulb_green").addClass("bulb-glow-green");
+    $("#bulb_pink").addClass("bulb-glow-pink");
+    $("#bulb_orange").addClass("bulb-glow-orange");
+    $("body").addClass("peach");
+  }
 });
 
 //alert('hello');
