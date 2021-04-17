@@ -4,19 +4,19 @@ $(window).load(function () {
 });
 $("document").ready(function () {
   // slick js init
-  $(".my-carousel").slick({
-    // setting- name: setting - value
-    accessibility: false,
-    autoplay: true,
-    autoplaySpeed: 5000,
-    arrows: false,
-    draggable: false,
-    fade: true,
-    speed: 2000,
-    infinite: false,
-    pauseOnHover: false,
-    swipe: false,
-  });
+  // $(".my-carousel").slick({
+  //   // setting- name: setting - value
+  //   accessibility: false,
+  //   autoplay: true,
+  //   autoplaySpeed: 5000,
+  //   arrows: false,
+  //   draggable: false,
+  //   fade: true,
+  //   speed: 2000,
+  //   infinite: false,
+  //   pauseOnHover: false,
+  //   swipe: false,
+  // });
 
   var vw;
   $(window).resize(function () {
@@ -239,36 +239,6 @@ $("document").ready(function () {
     );
   }
 
-  // function loopEight() {
-  //   var randleft = 1000 * Math.random();
-  //   var randtop = 500 * Math.random();
-  //   $("#b8").animate(
-  //     {
-  //       left: randleft,
-  //       bottom: randtop,
-  //     },
-  //     10000,
-  //     function () {
-  //       loopEight();
-  //     }
-  //   );
-  // }
-
-  // function loopNine() {
-  //   var randleft = 1000 * Math.random();
-  //   var randtop = 500 * Math.random();
-  //   $("#b9").animate(
-  //     {
-  //       left: randleft,
-  //       bottom: randtop,
-  //     },
-  //     10000,
-  //     function () {
-  //       loopNine();
-  //     }
-  //   );
-  // }
-
   $("#balloons_flying").click(function () {
     $(".balloon-border").animate(
       {
@@ -334,8 +304,6 @@ $("document").ready(function () {
     $("#b5").attr("id", "b55");
     $("#b6").attr("id", "b66");
     $("#b7").attr("id", "b77");
-    // $("#b8").attr("id", "b88");
-    // $("#b9").attr("id", "b99");
     $("#b11").animate(
       {
         top: 240,
@@ -385,20 +353,7 @@ $("document").ready(function () {
       },
       500
     );
-    // $("#b88").animate(
-    //   {
-    //     top: 240,
-    //     left: vw + 250,
-    //   },
-    //   500
-    // );
-    // $("#b99").animate(
-    //   {
-    //     top: 240,
-    //     left: vw + 350,
-    //   },
-    //   500
-    // );
+
     $(".balloons").css("opacity", "0.9");
     $(".balloons h2").fadeIn(3000);
     $(this)
@@ -467,20 +422,43 @@ $("document").ready(function () {
       .fadeOut("fast")
       .promise()
       .done(function () {
-        console.log("zzz");
+        console.log("banner out");
       });
     $(".balloons")
       .fadeOut("fast")
       .promise()
       .done(function () {
-        console.log("asadad");
+        console.log("balloons out");
         var audio3 = $(".msg-audio")[0];
         audio3.pause();
-        var audio4 = $(".reel-audio")[0];
-        audio4.play();
-        $(".my-carousel").fadeIn("slow");
-        //build a photo div and reel over it
+        $(".my-vid")
+          .fadeIn("fast")
+          .css({ display: "flex", "justify-content": "center" })
+          .promise()
+          .done(function () {
+            var vid1 = $(".actual-vid")[0];
+            console.log(vid1);
+            vid1.play();
+            vid1.onended = function () {
+              $("#replay_reel").fadeIn("slow");
+            };
+          });
       });
+  });
+
+  $("#replay_reel").click(function () {
+    $(this).fadeOut("slow");
+    var vid2 = $(".actual-vid")[0];
+    // vid2.autoplay = true;
+    // vid2.load();
+    vid2.play();
+    // .promise()
+    // .onended(function () {
+    // $(this).fadeIn("slow");
+    // });
+    vid2.onended = function () {
+      $(this).fadeIn("slow");
+    };
   });
 });
 
